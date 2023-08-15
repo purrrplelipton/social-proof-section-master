@@ -1,0 +1,251 @@
+:root {
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+
+  /* color-scheme: light dark; */
+
+  --very-dark-magenta: hsl(300, 43%, 22%);
+  --soft-pink: hsl(333, 80%, 67%);
+
+  --dark-grayish-magenta: hsl(303, 10%, 53%);
+  --light-grayish-magenta: hsl(300, 24%, 96%);
+
+  background-image: url(./images/bg-pattern-top-desktop.svg),
+    url(./images/bg-pattern-bottom-desktop.svg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: top, bottom;
+  background-size: contain;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  /* outline: 1px solid red; */
+  transition: 0.2s ease-in-out;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  max-width: 1280px;
+  margin: 0 auto;
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+main {
+  height: 768px;
+  grid-column: span 12;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 48px;
+}
+
+main > * {
+  grid-column: span 12;
+}
+
+.top-section {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+}
+
+.heading-container {
+  color: var(--very-dark-magenta);
+  grid-column: span 5;
+  font-size: 3em;
+  letter-spacing: -0.025em;
+  line-height: 0.8;
+}
+
+.heading-container p {
+  font-size: 0.45em;
+  letter-spacing: normal;
+  line-height: 1.5;
+  margin-top: 1.5em;
+  color: var(--dark-grayish-magenta);
+}
+
+.ratings-list {
+  color: var(--very-dark-magenta);
+  grid-column: 7 / span 6;
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  /* grid-template-rows: repeat(12, 1fr); */
+  gap: 24px;
+  padding: 32px 0;
+}
+
+.ratings-list li {
+  padding: 16px 24px;
+  background-color: var(--light-grayish-magenta);
+  border-radius: 10px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  line-height: 1;
+  font-size: 1em;
+}
+
+.ratings-list li:nth-child(1) {
+  grid-column: span 10;
+  /* grid-row: span 4; */
+}
+
+.ratings-list li:nth-child(2) {
+  grid-column: 2 / span 10;
+  /* grid-row: span 4; */
+}
+
+.ratings-list li:nth-child(3) {
+  grid-column: 3 / span 10;
+  /* grid-row: span 4; */
+}
+
+.ratings-list li div {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+.testimonial-section {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(12, 1fr);
+  gap: 16px 32px;
+}
+
+.testimonial-section > div {
+  grid-column: span 4;
+  border-radius: 12px;
+  background-color: var(--very-dark-magenta);
+  padding: 32px;
+  color: #fff;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  gap: 2em;
+}
+
+.testimonial-section > div:nth-child(1) {
+  grid-row: 1 / span 10;
+}
+
+.testimonial-section > div:nth-child(2) {
+  grid-row: 2 / span 10;
+}
+
+.testimonial-section > div:nth-child(3) {
+  grid-row: 3 / span 10;
+}
+
+.photo_details {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.photo_details img {
+  width: 52px;
+  border-radius: 50%;
+}
+
+.details {
+  font-size: 0.8em;
+  line-height: 1;
+  display: grid;
+  gap: 0.5em;
+}
+
+.details p {
+  color: var(--soft-pink);
+  font-size: 1.5em;
+}
+
+.testimonial-section > div > p {
+  font-size: 1.2em;
+}
+
+@media screen and (max-width: 768px) {
+  :root {
+    background-image: url(./images/bg-pattern-top-mobile.svg),
+      url(./images/bg-pattern-bottom-mobile.svg);
+  }
+
+  main,
+  .top-section,
+  .ratings-list,
+  .testimonial-section {
+    display: block;
+  }
+
+  .heading-container {
+    font-size: 1.8em;
+    text-align: center;
+  }
+
+  .heading-container p {
+    font-size: 0.6375em;
+  }
+
+  .ratings-list li {
+    flex-flow: column nowrap;
+    gap: 1em;
+    font-size: 0.75em;
+  }
+
+  .ratings-list li:not(:first-child, :last-child),
+  .testimonial-section > div:not(:first-child, :last-child) {
+    margin: 1.25em 0;
+  }
+
+  .testimonial-section {
+    margin-top: 1.5em;
+    padding-bottom: 3em;
+  }
+
+  .testimonial-section > div > p {
+    font-size: 1.1em;
+  }
+}
